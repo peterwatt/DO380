@@ -13,3 +13,18 @@
 * Configure RBAC roles with users and groups
 * Create and use authentication tokens with kubeconfig files
 * Create and use authentication certificates with kubeconfig files
+
+
+## LDAP Group Synchronization
+
+* LDAPSyncConfig
+* Service Account
+
+```bash
+oc create sa rhds-group-syncer
+```
+
+* ClusterRole
+* ClusterRoleBinding
+* ConfigMap
+* CronJob
