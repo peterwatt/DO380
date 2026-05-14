@@ -28,3 +28,5 @@ oc create secret generic rhds-secret --from-literal bindPassword='redhatocp'
 
 * ConfigMap
 * CronJob
+
+## OIDC Authentication and Group Claims
