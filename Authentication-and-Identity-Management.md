@@ -18,13 +18,13 @@
 ## LDAP Group Synchronization
 
 * LDAPSyncConfig
-* Service Account
 
 ```bash
 oc create sa rhds-group-syncer
+oc create clusterrole rhds-group-syncer --verb get,list,create,update --resource groups
+oc adm policy add-cluster-role-to-user rhds-group-syncer -z rhds-group-syncer
+oc create secret generic rhds-secret --from-literal bindPassword='redhatocp'
 ```
 
-* ClusterRole
-* ClusterRoleBinding
 * ConfigMap
 * CronJob
