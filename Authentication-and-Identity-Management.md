@@ -48,6 +48,15 @@ oc create secret generic rhds-secret --from-literal bindPassword='redhatocp'
 
 ## Resolve synchronization conflicts
 
+Check logs of the oauth pods in project `openshift-authentication`.
+
+```bash
+oc delete user fred
+oc delete identity htpasswd_provider:fred
+```
+
+To avoid conflicts when two IdPs provide the same user, update the IdPs mapping method in the OAuth custom resource to use *add* instead of *claim*. OpenShift adds the identity from Red Hat SSO and the htpasswd IdPs to the user regardless of which one is used first.
+
 ## Service accounts
 Have this format: `system:serviceaccount:test:test-sa`
 
